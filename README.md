@@ -1,0 +1,4 @@
+Sprinkles
+=========
+
+The Sprinkles project
