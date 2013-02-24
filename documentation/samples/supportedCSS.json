@@ -1,0 +1,22 @@
+[
+	{
+	    "name":"Background Color",
+	    "css":"background-color",
+	    "isGroup":"false",
+	    "entries":["color-chooser"]
+	},
+	{
+	    "name":"Foreground Color",
+	    "css":"color",
+	    "isGroup":"false",
+	    "value":"color-chooser",
+	    "entries":["color-chooser"]
+	},
+	{
+	    "name":"Height",
+	    "css":"height",
+	    "isGroup":"false",
+	    "value":"size",
+	    "entries":["size-entry"]
+	}
+]

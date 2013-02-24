@@ -1,0 +1,16 @@
+[
+	{
+		"id":"Panel",
+		"attributes": [
+			{
+				"id":"attributeID",
+				"value":"attributeValue"
+				"type":
+			}
+		]
+	},
+	{
+		"id":"someID2",
+		"attributes":[]
+	}
+]
