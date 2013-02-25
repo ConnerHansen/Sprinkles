@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.connerhansen.sprinkles.attributes.AttributeGroup;
+import org.connerhansen.sprinkles.attributes.Attribute;
 import org.connerhansen.sprinkles.gui.GUI;
 import org.connerhansen.sprinkles.settings.SettingExecutor;
 import org.connerhansen.sprinkles.settings.UserSetting;
@@ -24,16 +24,18 @@ public class Sprinkles {
 	public static final String DEFAULT_DIRECTORY = "documentation/samples/";
 	public static final String USER_PREFERENCES_FILE = "sprinkles.json";
 	public static final String DEFAULT_ATTRIBUTES_FILE = "attributes.json";
+	public static final String DEFAULT_CSS_FILE = "css.json";
 	
 	private List<UserSetting> settings;
 	private GUI gui;
-	private List<AttributeGroup> groups;
+	private List<Attribute> groups;
+	private List<Attribute> css;
 	
 	public Sprinkles(){
 		this.gui = new GUI(this);
 		settings = new ArrayList<UserSetting>();
-		groups = new ArrayList<AttributeGroup>();
-//		loadPreferences( DEFAULT_DIRECTORY );
+		groups = new ArrayList<Attribute>();
+		css = new ArrayList<Attribute>();
 	}
 	
 	public boolean addSetting( UserSetting s ){
@@ -87,20 +89,50 @@ public class Sprinkles {
 				JsonArray arr = p.parse( r ).getAsJsonArray();
 				
 				for( JsonElement e : arr ){
-					AttributeGroup grp = g.fromJson(e, AttributeGroup.class);
+					Attribute grp = g.fromJson(e, Attribute.class);
 					groups.add( grp );
 				}
 				
 //				g.fromJson(r, Sprinkles.class);
 			} else {
-				createDefaultSettings();
+//				createDefaultSettings();
 			}
 		
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		applySettings();
+//		applySettings();
+	}
+	
+	public void loadCSS( String directory ){
+		BufferedReader r;
+		try {
+			File f = new File(directory + DEFAULT_CSS_FILE);
+			
+			if( f.exists() ){
+				r = new BufferedReader(
+				new FileReader(f));
+			
+				Gson g = new Gson();
+				JsonParser p = new JsonParser();
+				JsonArray arr = p.parse( r ).getAsJsonArray();
+				
+				for( JsonElement e : arr ){
+					Attribute grp = g.fromJson(e, Attribute.class);
+					css.add( grp );
+				}
+				
+//				g.fromJson(r, Sprinkles.class);
+			} else {
+//				createDefaultSettings();
+			}
+		
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+//		applySettings();
 	}
 
 	/**

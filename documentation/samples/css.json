@@ -1,0 +1,50 @@
+[
+	{
+	    "id":"Background Color",
+	    "css":"background-color",
+	    "type":"color-chooser"
+	},
+	{
+	    "id":"Foreground Color",
+	    "css":"color",
+	    "type":"color-chooser"
+	},
+	{
+	    "id":"Height",
+	    "css":"height",
+	    "type":"size-entry"
+	},
+	{
+		"id":"Box Shadow",
+		"css":"box-shadow",
+		"isGroup":true,
+		"children":[
+			{
+			    "id":"X Offset",
+			    "css":"",
+			    "type":"size-entry"
+			},
+			{
+			    "id":"Y Offset",
+			    "css":"",
+			    "type":"size-entry"
+			},
+			{
+			    "id":"Blur",
+			    "css":"",
+			    "type":"size-entry"
+			},
+			{
+			    "id":"Spread",
+			    "css":"",
+			    "type":"size-entry",
+			    "optional":"true"
+			},
+			{
+			    "id":"Color",
+			    "css":"",
+			    "type":"color-chooser"
+			}
+		]
+	}
+]

@@ -1,16 +1,38 @@
 [
 	{
 		"id":"Panel",
-		"attributes": [
+		"css":"#panel",
+		"type":"class",
+		"isGroup":true,
+		"children": [
 			{
-				"id":"attributeID",
-				"value":"attributeValue"
-				"type":
+				"id":"Left Panel",
+				"type":"class",
+				"css":"#panelLeft"
+			},
+			{
+				"id":"Right Panel",
+				"type":"class",
+				"css":"#panelRight"
 			}
 		]
 	},
 	{
-		"id":"someID2",
-		"attributes":[]
+		"id":"Panel",
+		"css":"#panel",
+		"type":"class",
+		"isGroup":true,
+		"children": [
+			{
+				"id":"Left Panel",
+				"type":"class",
+				"css":"#panelLeft"
+			},
+			{
+				"id":"Right Panel",
+				"type":"class",
+				"css":"#panelRight"
+			}
+		]
 	}
 ]

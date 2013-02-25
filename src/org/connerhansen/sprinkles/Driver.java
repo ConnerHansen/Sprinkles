@@ -23,6 +23,7 @@ public class Driver {
 		
 		sprinkles.loadPreferences( Sprinkles.DEFAULT_DIRECTORY );
 		sprinkles.loadAttributes( Sprinkles.DEFAULT_DIRECTORY );
+		sprinkles.loadCSS( Sprinkles.DEFAULT_DIRECTORY );
 		
 		gui.setVisible( true );
 	}
