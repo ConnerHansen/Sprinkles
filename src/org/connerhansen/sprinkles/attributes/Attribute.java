@@ -91,4 +91,8 @@ public class Attribute {
 	public void setValue(Object value) {
 		this.value = value;
 	}
+	
+	public String toString(){
+		return this.id;
+	}
 }

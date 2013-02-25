@@ -79,6 +79,7 @@ public class Sprinkles {
 		BufferedReader r;
 		try {
 			File f = new File(directory + DEFAULT_ATTRIBUTES_FILE);
+			groups.clear();
 			
 			if( f.exists() ){
 				r = new BufferedReader(
@@ -102,6 +103,7 @@ public class Sprinkles {
 			e.printStackTrace();
 		}
 		
+		gui.constructLeftBar( groups );
 //		applySettings();
 	}
 	

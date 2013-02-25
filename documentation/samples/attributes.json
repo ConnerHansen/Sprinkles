@@ -1,37 +1,40 @@
 [
 	{
 		"id":"Panel",
-		"css":"#panel",
 		"type":"class",
 		"isGroup":true,
 		"children": [
 			{
 				"id":"Left Panel",
 				"type":"class",
-				"css":"#panelLeft"
+				"css":"panelLeft"
 			},
 			{
 				"id":"Right Panel",
 				"type":"class",
-				"css":"#panelRight"
+				"css":"panelRight"
+			},
+			{
+				"id":"Center Panel",
+				"type":"class",
+				"css":"panelCenter"
 			}
 		]
 	},
 	{
-		"id":"Panel",
-		"css":"#panel",
+		"id":"Applet",
 		"type":"class",
 		"isGroup":true,
 		"children": [
 			{
-				"id":"Left Panel",
+				"id":"Applet Box",
 				"type":"class",
-				"css":"#panelLeft"
+				"css":"applet-box"
 			},
 			{
-				"id":"Right Panel",
-				"type":"class",
-				"css":"#panelRight"
+				"id":"Applet",
+				"type":"id",
+				"css":"applet"
 			}
 		]
 	}
