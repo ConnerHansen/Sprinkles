@@ -15,6 +15,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.UIManager;
@@ -32,8 +33,8 @@ public class GUI extends JFrame {
 //	private JComponent elements[];
 	private Sprinkles s;
 	private JSplitPane p;
-	private JPanel left;
-	private JPanel right;
+	private JScrollPane left;
+	private JScrollPane right;
 	private JTree attributeTree;
 	private JProgressBar pb;
 	
@@ -45,21 +46,28 @@ public class GUI extends JFrame {
 		
 		this.setJMenuBar(createMenubar());
 		
-		left = new JPanel();
-		left.setBackground( Color.white );
+//		left = new JPanel();
+//		left.setBackground( Color.white );
 		
 		JTree tree = new JTree();
 		
-		right = new JPanel();
-		right.setBackground( Color.blue );
+//		right = new JPanel();
+//		right.setBackground( Color.blue );
+
+		left = new JScrollPane( new JPanel() );
+		right = new JScrollPane( new JPanel() );
+		
+		left.setHorizontalScrollBarPolicy( JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS );
+		left.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
 		
 		p = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, left, right);
 		p.setDividerLocation(150);
 		p.setOneTouchExpandable( true );
 		
 		pb = new JProgressBar(0, 100);
-		pb.setIndeterminate( true );
-		pb.setPreferredSize( new Dimension( 400, 24) );
+		pb.setVisible( false );
+//		pb.setIndeterminate( true );
+//		pb.setPreferredSize( new Dimension( 400, 24) );
 		
 		JPanel content = new JPanel();
 		BoxLayout b = new BoxLayout(content, BoxLayout.Y_AXIS);
