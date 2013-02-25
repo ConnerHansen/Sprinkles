@@ -4,6 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
@@ -26,6 +31,7 @@ import javax.swing.event.TreeModelEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeModel;
 
+import org.connerhansen.sprinkles.Driver;
 import org.connerhansen.sprinkles.Sprinkles;
 import org.connerhansen.sprinkles.attributes.Attribute;
 import org.connerhansen.sprinkles.settings.SettingExecutor;
@@ -136,21 +142,51 @@ public class GUI extends JFrame {
 	}
 	
 	private JMenuBar createMenubar(){
-		JMenuBar m = new JMenuBar();
+		final JMenuBar m = new JMenuBar();
 		JMenu file = new JMenu( "File" );
 //		JMenu edit = new JMenu( "Edit" );
 //		JMenu view = new JMenu( "View" );
+		JMenu about = new JMenu( "About" );
 		
 		JMenuItem fileNew = new JMenuItem( "New Theme" );
 		JMenuItem fileOpen = new JMenuItem( "Open Theme" );
+		JMenuItem fileExit = new JMenuItem( "Exit" );
+		fileExit.addActionListener( new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GUI.this.dispose();
+			}
+			
+		});
+		
+		
+		JMenuItem aboutAbout = new JMenuItem( "About Sprinkles" );
+		aboutAbout.addActionListener( new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog( GUI.this, "Contributors: Conner Hansen\n\n" +
+						"Sprinkles Version: " + Driver.VERSION,
+						"About Sprinkles", JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+		});
 		
 		file.add(fileNew);
 		file.add(fileOpen);
+		file.add(fileExit);
 		
 		file.getPopupMenu().setBorderPainted( true );
 		file.getPopupMenu().setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
 		
+		about.add(aboutAbout);
+		
+		about.getPopupMenu().setBorderPainted( true );
+		about.getPopupMenu().setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+		
 		m.add(file);
+		m.add(about);
 //		m.add(edit);
 //		m.add(view);
 		

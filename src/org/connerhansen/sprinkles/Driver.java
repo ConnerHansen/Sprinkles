@@ -7,6 +7,7 @@ public class Driver {
 	// Static Variables
 	//////////////////////////////////
 	private static Driver instance;
+	public static final String VERSION = "0.0.4a";
 	
 	//////////////////////////////////
 	// Instance Variables
