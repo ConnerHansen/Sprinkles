@@ -28,12 +28,15 @@ import javax.swing.JTree;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.TreeModelEvent;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeModel;
 
 import org.connerhansen.sprinkles.Driver;
 import org.connerhansen.sprinkles.Sprinkles;
 import org.connerhansen.sprinkles.attributes.Attribute;
+import org.connerhansen.sprinkles.gui.panels.AttributePanel;
 import org.connerhansen.sprinkles.settings.SettingExecutor;
 import org.connerhansen.sprinkles.settings.UserSetting;
 
@@ -121,9 +124,24 @@ public class GUI extends JFrame {
 		attributeTree.setBackground(Color.WHITE);
 		attributeTree.setRootVisible(false);
 		
+		attributeTree.addTreeSelectionListener( new TreeSelectionListener(){
+
+			@Override
+			public void valueChanged(TreeSelectionEvent e) {
+				DefaultMutableTreeNode node = (DefaultMutableTreeNode) e.getPath().getLastPathComponent();
+				Attribute a = (Attribute) node.getUserObject();
+				constructRightBar( a );
+			}
+			
+		});
+		
 		left = new JScrollPane( attributeTree );
 		
 		p.setLeftComponent( left );
+	}
+	
+	public void constructRightBar(Attribute attribute){
+		p.setRightComponent( new JScrollPane( new AttributePanel( attribute )));
 	}
 	
 	private void attributesToObject(Attribute[] attributes, DefaultMutableTreeNode root){
