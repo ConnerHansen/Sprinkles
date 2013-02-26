@@ -25,6 +25,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
+import javax.swing.JViewport;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.TreeModelEvent;
@@ -141,7 +142,17 @@ public class GUI extends JFrame {
 	}
 	
 	public void constructRightBar(Attribute attribute){
-		p.setRightComponent( new JScrollPane( new AttributePanel( attribute )));
+		int currDivide = p.getDividerLocation();
+		
+		AttributePanel ap = new AttributePanel( attribute );
+		ap.setBorder( BorderFactory.createCompoundBorder(
+				BorderFactory.createEmptyBorder(5, 5, 5, 5), 
+				ap.getBorder()));
+		JScrollPane sp = new JScrollPane( ap );
+		sp.getVerticalScrollBar().setUnitIncrement( 10 );
+		
+		p.setRightComponent( sp );
+		p.setDividerLocation( currDivide );
 	}
 	
 	private void attributesToObject(Attribute[] attributes, DefaultMutableTreeNode root){

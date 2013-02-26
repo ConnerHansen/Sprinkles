@@ -5,6 +5,11 @@
 		"isGroup":true,
 		"children": [
 			{
+				"id":"Panel",
+				"type":"class",
+				"css":"panel"
+			},
+			{
 				"id":"Left Panel",
 				"type":"class",
 				"css":"panelLeft"
